@@ -11,10 +11,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const audio = document.getElementById("background-music");
     const playBtn = document.getElementById("play-button");
 
+    // Botão manual para tocar música
     playBtn.addEventListener("click", () => {
         audio.play();
         playBtn.style.display = "none";
     });
+
+    // Toca música automaticamente após o primeiro clique em qualquer lugar
+    const startMusic = () => {
+        audio.play().then(() => {
+            playBtn.style.display = "none";
+        }).catch((e) => {
+            console.log("Autoplay bloqueado:", e);
+        });
+        document.removeEventListener("click", startMusic);
+    };
+    document.addEventListener("click", startMusic);
 
     showSlide(slideIndex); // Mostra o primeiro slide
 
