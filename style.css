@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@media (max-width: 768px) {
+    .slideshow-container {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .caption {
+        font-size: 18px;
+    }
+    p {
+        font-size: 16px;
+    }
+} 
+
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f0e3e6;
+    text-align: center;
+    background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/1778.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 500px;
+    max-height: 500px;
+    margin: auto;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slide {
+    display: none;
+    position: absolute;  
+    width: 100%;
+    height: auto;
+}
+
+.caption {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #B22222;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+}
+
+.container div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+img {
+    border-radius: 0px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+p {
+    font-size: 20px;
+}
+
+#img1,
+#img2,
+#img3,
+#img4 {
+    object-fit: fill;
+}

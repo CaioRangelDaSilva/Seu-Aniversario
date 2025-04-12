@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Romance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="slideshow-container">
+
+        <div>
+            <img src="fotos/foto1.jpeg" alt="Foto 1" id="img1" class="slide">
+            <p>None</p>
+        </div>
+        <div>
+            <img src="fotos/foto2.jpeg" alt="Foto 2" id="img2" class="slide">
+            <p>None</p>
+        </div>
+        <div>
+            <img src="fotos/foto3.jpeg" alt="Foto 3" id="img3" class="slide">
+            <p>None</p>
+        </div>
+        <div>
+            <img src="fotos/foto4.jpeg" alt="Foto 4" id="img4" class="slide">
+            <p>None</p>
+        </div>
+
+        <div class="caption">
+            <p id="caption-text"></p>
+        </div>
+
+    </div>
+
+    <button id="play-button" onclick="playMusic()" style="display: none;">▶️ Tocar Música</button>
+    <button id="pause-button" onclick="pauseMusic()" style="display: none;">⏸️ Pausar Música</button>
+    <audio id="background-music" loop>
+        <source src="Vem Cá - Pelé MilFlows (Prod. Volp).mp3" type="audio/mp3">
+        Seu navegador não suporta o áudio.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
