@@ -8,11 +8,18 @@ let captions = [
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
-    showSlide(slideIndex);
+    const audio = document.getElementById("background-music");
+    const playBtn = document.getElementById("play-button");
 
+    playBtn.addEventListener("click", () => {
+        audio.play();
+        playBtn.style.display = "none";
+    });
+
+    showSlide(slideIndex); // Mostra o primeiro slide
+
+    // Eventos de swipe na tela
     const slideshow = document.querySelector(".slideshow-container");
-
-    // Eventos de toque
     slideshow.addEventListener("touchstart", handleTouchStart, false);
     slideshow.addEventListener("touchend", handleTouchEnd, false);
 });
@@ -38,7 +45,7 @@ function prevSlide() {
     showSlide(slideIndex);
 }
 
-// Detecção de swipe
+// Swipe detection
 function handleTouchStart(e) {
     startX = e.touches[0].clientX;
 }
@@ -47,7 +54,7 @@ function handleTouchEnd(e) {
     let endX = e.changedTouches[0].clientX;
     let diffX = startX - endX;
 
-    if (Math.abs(diffX) > 50) { // só considera swipe se for "forte o bastante"
+    if (Math.abs(diffX) > 50) {
         if (diffX > 0) {
             nextSlide(); // Swipe para esquerda
         } else {

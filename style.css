@@ -78,3 +78,21 @@ p {
 #img4 {
     object-fit: fill;
 }
+
+#play-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ff8fa3;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+#play-button:hover {
+    background-color: #ff6e88;
+}
+
