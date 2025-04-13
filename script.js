@@ -1,11 +1,7 @@
 let slideIndex = 0;
 let startX = 0;
 
-let captions = [
-    "O amor é a poesia dos sentidos.",
-    "Entre cada batida do coração, há uma história de amor.",
-    "Nosso amor é uma história que nunca acaba.",
-];
+const captions = [];
 
 document.addEventListener("DOMContentLoaded", function () {
     const audio = document.getElementById("background-music");
