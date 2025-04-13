@@ -5,15 +5,7 @@ let captions = [
     "O amor é a poesia dos sentidos.",
     "Entre cada batida do coração, há uma história de amor.",
     "Nosso amor é uma história que nunca acaba.",
-    "Você é a razão do meu sorriso.",
-    "Cada dia ao seu lado é um presente.",
-    "Você é o meu sonho realizado.",
-    "A vida é melhor com você ao meu lado.",
-    "Você é a luz que ilumina meu caminho.",
-    "Seu sorriso é a minha felicidade.",
-    "Você é a razão pela qual eu acredito no amor.",
-    "A cada dia que passa, eu te amo mais.",
-    "Você é a minha melhor parte."
+
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
