@@ -40,12 +40,14 @@ body {
 }
 
 .slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute; 
+    display: none;
+    position: absolute;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
 }
 
 .caption {

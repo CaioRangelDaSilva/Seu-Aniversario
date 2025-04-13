@@ -5,7 +5,6 @@ let captions = [
     "O amor é a poesia dos sentidos.",
     "Entre cada batida do coração, há uma história de amor.",
     "Nosso amor é uma história que nunca acaba.",
-
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -15,15 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const startScreen = document.getElementById("start-screen");
     const startButton = document.getElementById("start-button");
 
-    // Esconde os controles até o clique
     playBtn.style.display = "none";
     pauseBtn.style.display = "none";
 
     // Ação ao clicar em "Iniciar"
     startButton.addEventListener("click", () => {
-        startScreen.style.display = "none"; // Esconde a tela inicial
+        startScreen.style.display = "none";
 
-        // Toca a música
+        // Inicia a música
         audio.play().then(() => {
             pauseBtn.style.display = "inline-block";
         }).catch(err => {
@@ -33,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         audio.volume = 0.5;
         audio.loop = true;
 
-        // Começa o slideshow automático
+        // Mostra o primeiro slide e inicia o slideshow automático
         showSlide(slideIndex);
         setInterval(() => {
             nextSlide();
@@ -58,3 +56,48 @@ document.addEventListener("DOMContentLoaded", function () {
         playBtn.style.display = "inline-block";
     });
 });
+
+// Mostra um slide por vez
+function showSlide(index) {
+    let slides = document.querySelectorAll(".slide");
+
+    if (index >= slides.length) slideIndex = 0;
+    if (index < 0) slideIndex = slides.length - 1;
+
+    slides.forEach(slide => {
+        slide.style.display = "none";
+    });
+
+    slides[slideIndex].style.display = "block";
+
+    const captionText = document.getElementById("caption-text");
+    captionText.innerText = captions[slideIndex] || "";
+}
+
+function nextSlide() {
+    slideIndex++;
+    showSlide(slideIndex);
+}
+
+function prevSlide() {
+    slideIndex--;
+    showSlide(slideIndex);
+}
+
+// Swipe detection
+function handleTouchStart(e) {
+    startX = e.touches[0].clientX;
+}
+
+function handleTouchEnd(e) {
+    let endX = e.changedTouches[0].clientX;
+    let diffX = startX - endX;
+
+    if (Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+            nextSlide();
+        } else {
+            prevSlide();
+        }
+    }
+}
