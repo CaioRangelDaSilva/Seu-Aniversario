@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const pauseBtn = document.getElementById("pause-button");
 
     audio.play(); // Toca a música automaticamente
-    playBtn.style.display = "inline-block"; // Exibe o botão de play
     audio.volume = 0.5; // Define o volume da música (0.0 a 1.0)
     audio.loop = true; // Repetir a música
 
