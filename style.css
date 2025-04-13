@@ -158,15 +158,12 @@ p {
     height: 50px;
     top: 10%;
     right: 10px;
-    padding: -10px 20px;
     font-size:12px;
     background-color: #ff8fa3;
     color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    margin-right: 280px; /* afasta um pouco do botão play */
-    margin-top: -10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s;
 }
