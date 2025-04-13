@@ -54,12 +54,12 @@ function showSlide(index) {
 }
 
 function nextSlide() {
-    slideIndex++;
+    slideIndex = (slideIndex + 1) % document.querySelectorAll(".slide").length;
     showSlide(slideIndex);
 }
 
 function prevSlide() {
-    slideIndex--;
+    slideIndex = (slideIndex - 1 + document.querySelectorAll(".slide").length) % document.querySelectorAll(".slide").length;
     showSlide(slideIndex);
 }
 
