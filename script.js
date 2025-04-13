@@ -22,21 +22,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const pauseBtn = document.getElementById("pause-button");
 
     audio.play(); // Toca a música automaticamente
+    playBtn.style.display = "inline-block"; // Exibe o botão de play
     audio.volume = 0.5; // Define o volume da música (0.0 a 1.0)
     audio.loop = true; // Repetir a música
-
-    // Pausar música
-    pauseBtn.addEventListener("click", () => {
-        audio.pause();
-        pauseBtn.style.display = "none";
-        playBtn.style.display = "inline-block";
-    });
 
     // Tocar música
     playBtn.addEventListener("click", () => {
         audio.play();
         playBtn.style.display = "none";
         pauseBtn.style.display = "inline-block";
+    });
+
+    // Pausar música
+    pauseBtn.addEventListener("click", () => {
+        audio.pause();
+        pauseBtn.style.display = "none";
+        playBtn.style.display = "inline-block";
     });
 
     // Mostra o primeiro slide
