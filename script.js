@@ -1,9 +1,19 @@
 let slideIndex = 0;
 let startX = 0;
+
 let captions = [
     "O amor é a poesia dos sentidos.",
     "Entre cada batida do coração, há uma história de amor.",
-    "Nosso amor é uma história que nunca acaba."
+    "Nosso amor é uma história que nunca acaba.",
+    "Você é a razão do meu sorriso.",
+    "Cada dia ao seu lado é um presente.",
+    "Você é o meu sonho realizado.",
+    "A vida é melhor com você ao meu lado.",
+    "Você é a luz que ilumina meu caminho.",
+    "Seu sorriso é a minha felicidade.",
+    "Você é a razão pela qual eu acredito no amor.",
+    "A cada dia que passa, eu te amo mais.",
+    "Você é a minha melhor parte.",
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -11,23 +21,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const playBtn = document.getElementById("play-button");
     const pauseBtn = document.getElementById("pause-button");
 
-    // Tocar música automaticamente ao carregar a página
-    audio.play();
-    playBtn.style.display = "none";
-    pauseBtn.style.display = "inline-block";
+    audio.play(); // Toca a música automaticamente
+    audio.volume = 0.5; // Define o volume da música (0.0 a 1.0)
+    playBtn.style.display = "none"; // Esconde o botão de play inicialmente
+    pauseBtn.style.display = "inline-block"; // Mostra o botão de pause inicialmente
+    audio.loop = true; // Repetir a música
 
-    // Tocar música ao clicar no botão de play
-    playBtn.addEventListener("click", () => {
-        audio.play();
-        playBtn.style.display = "none";
-        pauseBtn.style.display = "inline-block";
-    });
-
-    // Pausar música ao clicar no botão de pause
+    // Pausar música
     pauseBtn.addEventListener("click", () => {
         audio.pause();
         pauseBtn.style.display = "none";
         playBtn.style.display = "inline-block";
+    });
+
+    // Tocar música
+    playBtn.addEventListener("click", () => {
+        audio.play();
+        playBtn.style.display = "none";
+        pauseBtn.style.display = "inline-block";
     });
 
     // Mostra o primeiro slide
@@ -41,8 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function showSlide(index) {
     let slides = document.querySelectorAll(".slide");
+
     if (index >= slides.length) slideIndex = 0;
     if (index < 0) slideIndex = slides.length - 1;
+
     slides.forEach(slide => slide.style.display = "none");
     slides[slideIndex].style.display = "block";
     document.getElementById("caption-text").innerText = captions[slideIndex];
@@ -66,6 +79,7 @@ function handleTouchStart(e) {
 function handleTouchEnd(e) {
     let endX = e.changedTouches[0].clientX;
     let diffX = startX - endX;
+
     if (Math.abs(diffX) > 50) {
         if (diffX > 0) {
             nextSlide();
