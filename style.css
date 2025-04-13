@@ -34,7 +34,9 @@ body {
     position: relative;
     max-width: 500px;
     max-height: 500px;
-    margin: auto;
+    margin: 0;
+    margin-top: 0px;
+    margin-left: 350px;
     padding: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -61,12 +63,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 5px;
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: absolute;
-    padding: 20px 0;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
+
+
   }
 
  .texto-encima, .texto-embaixo {
@@ -74,15 +82,20 @@ body {
     background-color: rgba(255, 255, 255, 0.85);
     color: #333;
     font-size: 18px;
-    padding: 1px;
-    text-align: center;
+    padding: 5px; /* aumentei o padding */
+    text-align: start;
     box-sizing: border-box;
     z-index: 2;
-  }
+    overflow-wrap: break-word; /* quebra o texto se precisar */
+    word-break: break-word;
+    text-align: center;
+}
 
 img {
-    max-width: 200px;
-    height: auto;
+    width: 100%;
+    max-width: 470px; /* você pode ajustar esse valor */
+    max-height: 450px; /* você pode ajustar esse valor */
+    margin: 0 auto;
     object-fit: contain;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
@@ -91,6 +104,7 @@ img {
 p {
     font-size: 20px;
 }
+
 #img1,
 #img1,
 #img2,
@@ -194,13 +208,4 @@ html, body {
     overflow-x:hidden;
     overflow-y:hidden;
     touch-action: pan-y;
-}
-
-.slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute; 
-    width: 100%;
-    height: 100%;
 }
