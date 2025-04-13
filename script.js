@@ -10,27 +10,32 @@ let captions = [
 document.addEventListener("DOMContentLoaded", function () {
     const audio = document.getElementById("background-music");
     const playBtn = document.getElementById("play-button");
+    const pauseBtn = document.getElementById("pause-button");
 
-    // Botão manual para tocar música
+    audio.play(); // Toca a música automaticamente
+    audio.volume = 0.5; // Define o volume da música (0.0 a 1.0)
+    playBtn.style.display = "none"; // Esconde o botão de play inicialmente
+    pauseBtn.style.display = "inline-block"; // Mostra o botão de pause inicialmente
+    audio.loop = true; // Repetir a música
+
+    // Pausar música
+    pauseBtn.addEventListener("click", () => {
+        audio.pause();
+        pauseBtn.style.display = "none";
+        playBtn.style.display = "inline-block";
+    });
+
+    // Tocar música
     playBtn.addEventListener("click", () => {
         audio.play();
         playBtn.style.display = "none";
+        pauseBtn.style.display = "inline-block";
     });
 
-    // Toca música automaticamente após o primeiro clique em qualquer lugar
-    const startMusic = () => {
-        audio.play().then(() => {
-            playBtn.style.display = "none";
-        }).catch((e) => {
-            console.log("Autoplay bloqueado:", e);
-        });
-        document.removeEventListener("click", startMusic);
-    };
-    document.addEventListener("click", startMusic);
+    // Mostra o primeiro slide
+    showSlide(slideIndex);
 
-    showSlide(slideIndex); // Mostra o primeiro slide
-
-    // Eventos de swipe na tela
+    // Eventos de swipe
     const slideshow = document.querySelector(".slideshow-container");
     slideshow.addEventListener("touchstart", handleTouchStart, false);
     slideshow.addEventListener("touchend", handleTouchEnd, false);
@@ -56,6 +61,7 @@ function prevSlide() {
     slideIndex--;
     showSlide(slideIndex);
 }
+
 // Swipe detection
 function handleTouchStart(e) {
     startX = e.touches[0].clientX;
@@ -67,9 +73,9 @@ function handleTouchEnd(e) {
 
     if (Math.abs(diffX) > 50) {
         if (diffX > 0) {
-            nextSlide(); // Swipe para esquerda
+            nextSlide();
         } else {
-            prevSlide(); // Swipe para direita
+            prevSlide();
         }
     }
 }
