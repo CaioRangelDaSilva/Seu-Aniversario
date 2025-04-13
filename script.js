@@ -13,7 +13,7 @@ let captions = [
     "Seu sorriso é a minha felicidade.",
     "Você é a razão pela qual eu acredito no amor.",
     "A cada dia que passa, eu te amo mais.",
-    "Você é a minha melhor parte.",
+    "Você é a minha melhor parte."
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
