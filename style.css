@@ -19,7 +19,6 @@
 }
 
 body {
-    margin: 0;
     font-family: 'Poppins', Arial, sans-serif;
     background-color: #f0e3e6;
     text-align: center;
@@ -34,8 +33,6 @@ body {
     position: relative;
     max-width: 500px;
     max-height: 500px;
-    margin: 0 auto;
-    margin-top: 0px;
     padding: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -71,7 +68,6 @@ body {
     top: 0;
     left: 0;
     padding: 0;
-    margin: 0;
     box-sizing: border-box;
 
 
@@ -95,7 +91,6 @@ img {
     width: 100%;
     max-width: 470px; /* você pode ajustar esse valor */
     max-height: 450px; /* você pode ajustar esse valor */
-    margin: 0;
     object-fit: contain;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
