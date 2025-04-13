@@ -12,48 +12,51 @@ document.addEventListener("DOMContentLoaded", function () {
     const audio = document.getElementById("background-music");
     const playBtn = document.getElementById("play-button");
     const pauseBtn = document.getElementById("pause-button");
+    const startScreen = document.getElementById("start-screen");
+    const startButton = document.getElementById("start-button");
 
-    playBtn.style.display = "inline-block";
-    
-    // Tentativa de autoplay
-    const playPromise = audio.play();
+    // Esconde os controles inicialmente
+    playBtn.style.display = "none";
+    pauseBtn.style.display = "none";
 
-    if (playPromise !== undefined) {
-        playPromise.then(() => {
-            playBtn.style.display = "none";
+    // Quando clicar em "Começar"
+    startButton.addEventListener("click", () => {
+        startScreen.style.display = "none";
+
+        audio.play().then(() => {
             pauseBtn.style.display = "inline-block";
-        }).catch(error => {
-            console.log("Autoplay bloqueado, aguardando interação do usuário");
+        }).catch((err) => {
+            console.log("Erro ao tocar áudio:", err);
         });
-    }
 
-    audio.volume = 0.5;
-    audio.loop = true;
-    // Tocar música
+        audio.volume = 0.5;
+        audio.loop = true;
+
+        // Inicia slideshow automático
+        setInterval(() => {
+            nextSlide();
+        }, 5000);
+
+        showSlide(slideIndex);
+    });
+
+    // Swipe
+    const slideshow = document.querySelector(".slideshow-container");
+    slideshow.addEventListener("touchstart", handleTouchStart, false);
+    slideshow.addEventListener("touchend", handleTouchEnd, false);
+
+    // Botões manuais (caso precise ainda)
     playBtn.addEventListener("click", () => {
         audio.play();
         playBtn.style.display = "none";
         pauseBtn.style.display = "inline-block";
     });
 
-    // Pausar música
     pauseBtn.addEventListener("click", () => {
         audio.pause();
         pauseBtn.style.display = "none";
         playBtn.style.display = "inline-block";
     });
-
-    // Mostra o primeiro slide
-    showSlide(slideIndex);
-
-    // Eventos de swipe
-    const slideshow = document.querySelector(".slideshow-container");
-    slideshow.addEventListener("touchstart", handleTouchStart, false);
-    slideshow.addEventListener("touchend", handleTouchEnd, false);
-
-    setInterval(() => {
-        nextSlide();
-    }, 1000); // Troca de slide a cada 5 segundos
 });
 
 function showSlide(index) {
