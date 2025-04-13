@@ -77,8 +77,8 @@ body {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.85);
     color: #333;
-    font-size: 18px;
-    padding: 5px; /* aumentei o padding */
+    font-size: 15px;
+    padding: 15px; /* aumentei o padding */
     text-align: start;
     box-sizing: border-box;
     z-index: 2;
