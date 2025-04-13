@@ -9,7 +9,7 @@
 <body>
     <div class="slideshow-container">
 
-        <div>
+        div>
             <img src="fotos/foto1.jpeg" alt="Foto 1" id="img1" class="slide">
             <p>None</p>
         </div>
@@ -35,10 +35,12 @@
         <source src="music.mp3" type="audio/mp3">
         Seu navegador não suporta o áudio.
     </audio>
-
+    <div class="controls">
+        <button id="prev-button" onclick="prevSlide()">⏪ Anterior</button>
+        <button id="next-button" onclick="nextSlide()">Próximo ⏩</button>
     <button id="pause-button" onclick="pauseMusic()" style="display: none;">⏸️ Pausar Música</button>
-    <button id="play-button" onclick="playMusic()">▶️ Tocar Música</button>    
-
+    <button id="play-button" onclick="playMusic()">▶️ Tocar Música</button>   
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

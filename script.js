@@ -56,7 +56,6 @@ function prevSlide() {
     slideIndex--;
     showSlide(slideIndex);
 }
-
 // Swipe detection
 function handleTouchStart(e) {
     startX = e.touches[0].clientX;
