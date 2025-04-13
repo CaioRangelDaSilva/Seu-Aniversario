@@ -42,7 +42,7 @@ body {
 .slide {
     display: none;
     position: absolute; 
-    width: 100%;
+    width:auto;
     height: auto;
 }
 
