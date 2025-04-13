@@ -13,12 +13,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const playBtn = document.getElementById("play-button");
     const pauseBtn = document.getElementById("pause-button");
 
+    playBtn.style.display = "inline-block";
     
-    playBtn.style.display = "inline-block"; // Exibe o botão de play
-    audio.play(); // Toca a música automaticamente
-    audio.volume = 0.5; // Define o volume da música (0.0 a 1.0)
-    audio.loop = true; // Repetir a música
+    // Tentativa de autoplay
+    const playPromise = audio.play();
 
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            playBtn.style.display = "none";
+            pauseBtn.style.display = "inline-block";
+        }).catch(error => {
+            console.log("Autoplay bloqueado, aguardando interação do usuário");
+        });
+    }
+
+    audio.volume = 0.5;
+    audio.loop = true;
     // Tocar música
     playBtn.addEventListener("click", () => {
         audio.play();
@@ -40,6 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const slideshow = document.querySelector(".slideshow-container");
     slideshow.addEventListener("touchstart", handleTouchStart, false);
     slideshow.addEventListener("touchend", handleTouchEnd, false);
+
+    setInterval(() => {
+        nextSlide();
+    }, 1000); // Troca de slide a cada 5 segundos
 });
 
 function showSlide(index) {
